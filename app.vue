@@ -1,28 +1,50 @@
 <template>
   <main
-      class="container mx-auto flex flex-col lg:my-9 max-w-screen-lg bg-gray-50 shadow-2xl md:rounded-lg overflow-hidden">
-    <NuxtRouteAnnouncer/>
+    class="container mx-auto flex flex-col lg:my-9 max-w-screen-lg bg-gray-50 shadow-2xl md:rounded-lg overflow-hidden"
+  >
+    <NuxtRouteAnnouncer />
+
+    <img
+      class="absolute top-0 left-0 pointer-events-none hidden xl:block"
+      src="@/public/images/plants.png"
+      alt="decor"
+    />
+    <img
+      class="absolute top-0 right-0 pointer-events-none hidden xl:block"
+      src="@/public/images/plants-mirror.png"
+      alt="decor"
+    />
 
     <header class="flex flex-col gap-3 relative overflow-hidden h-auto group">
       <div class="relative">
-        <img class="transition-all duration-500 group-hover:scale-105" src="@/public/images/hlavni.jpg"
-             alt="Terka s Jirkou"/>
-        <div class="absolute inset-0 bg-gradient-to-r from-lime-950 to-60%"></div>
+        <img
+          class="transition-all duration-500 group-hover:scale-105"
+          src="@/public/images/hlavni.jpg"
+          alt="Terka s Jirkou"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-lime-950 to-60%" />
       </div>
 
       <div class="flex absolute inset-0">
-        <div class="flex flex-1 flex-col p-6 md:p-14 justify-center md:justify-normal">
+        <div
+          class="flex flex-1 flex-col p-6 md:px-14 md:p-10 justify-start md:justify-normal"
+        >
           <div class="flex-col text-white font-bold hidden md:flex text-7xl">
             <span>01</span>
             <span>11</span>
             <span>24</span>
           </div>
 
-          <div class="ml-10 my-4 w-1 bg-white grow hidden md:block"></div>
+          <div class="ml-10 my-8 w-1 bg-white grow hidden md:block" />
 
           <div class="flex flex-col">
-            <span class="text-white font-bold text-5xl md:text-8xl font-gwendolyn">Tereza & Jiří</span>
-            <span class="text-white text-3xl md:text-6xl font-gwendolyn">si řeknou své <b>Ano</b></span>
+            <span
+              class="text-white font-bold text-6xl md:text-8xl font-parisienne"
+              >Tereza & Jiří</span
+            >
+            <span class="text-white text-4xl md:text-6xl font-parisienne"
+              >si řeknou své <b>Ano</b></span
+            >
           </div>
         </div>
       </div>
@@ -31,31 +53,33 @@
     <div class="flex flex-col gap-12 p-6 md:p-12">
       <section class="flex flex-col gap-3">
         <div class="flex flex-col gap-3">
-          <p>Jsme nadšení, že se s Vámi můžeme podělit o tento jedinečný okamžik našeho života.</p>
-
           <p>
-            Náš příběh začal před více než <b>9-ti lety</b>, kdy jsme se poprvé potkali, a za posledních 5 let jsme
-            spolu
-            vybudovali nejen krásný vztah, ale také náš společný domov.
+            Jsme nadšení, že se s Vámi můžeme podělit o tento jedinečný okamžik
+            našeho života.
           </p>
 
           <p>
-            Stavba domu pro nás byla velkou výzvou, ale zároveň nám ukázala, jak silní jsme jako tým a jak moc se jeden
-            na druhého můžeme spolehnout.
+            Náš příběh začal před více než <b>9-ti lety</b>, kdy jsme se poprvé
+            potkali, a za posledních 5 let jsme spolu vybudovali nejen krásný
+            vztah, ale také náš společný domov.
           </p>
 
           <p>
-            Na této stránce najdete <b>všechny důležité informace</b> o našem svatebním dni – od místa konání, přes
-            časový
-            plán,
-            až po další detaily, které vám pomohou užít si s námi tento výjimečný den.
+            Stavba domu pro nás byla velkou výzvou, ale zároveň nám ukázala, jak
+            silní jsme jako tým a jak moc se jeden na druhého můžeme spolehnout.
           </p>
 
           <p>
-            Těšíme se, že s námi oslavíte tento den a budete svědky naší lásky a radosti. Abychom si všichni mohli
-            naplno
-            užít večer, rádi bychom Vás požádali, abyste si, pokud to bude možné, na tento den <b>zajistili hlídání pro
-            Vaše děti.</b>
+            Na této stránce najdete <b>všechny důležité informace</b> o našem
+            svatebním dni – od místa konání, přes časový plán, až po další
+            detaily, které vám pomohou užít si s námi tento výjimečný den.
+          </p>
+
+          <p>
+            Těšíme se, že s námi oslavíte tento den a budete svědky naší lásky a
+            radosti. Abychom si všichni mohli naplno užít večer, rádi bychom Vás
+            požádali, abyste si, pokud to bude možné, na tento den
+            <b>zajistili hlídání pro Vaše děti.</b>
           </p>
 
           <p class="italic">S láskou, Tereza a Jiří</p>
@@ -64,29 +88,42 @@
 
       <section class="flex flex-col gap-3">
         <div v-if="!showConfirmParticipationForm" class="flex justify-center">
-          <button id="potvrzeni-ucasti"
-                  class="text-4xl font-bold font-gwendolyn bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
-                  @click="showConfirmParticipationForm=true">
+          <button
+            id="potvrzeni-ucasti"
+            class="text-4xl font-bold font-parisienne bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105 animate-pulse"
+            @click="showConfirmParticipationForm = true"
+          >
             Vyplnit svatební dotazník
           </button>
         </div>
 
-        <form v-if="showConfirmParticipationForm" class="flex flex-col gap-6">
+        <form
+          v-if="showConfirmParticipationForm"
+          class="flex flex-col gap-6"
+          @submit="handleConfirmParticipationFormSubmit"
+        >
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div class="flex flex-col gap-1">
-              <label for="first-name">Jméno</label>
-              <input id="first-name" name="first-name" type="text"/>
+              <label for="full-name">Vaše jméno</label>
+              <input
+                id="full-name"
+                type="text"
+                v-model.trim="fullName"
+                required
+                class="border-primary focus:border-primary focus:ring-primary"
+              />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label for="last-name">Příjmení</label>
-              <input id="last-name" name="last-name" type="text"/>
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                type="email"
+                v-model.trim="email"
+                class="border-primary focus:border-primary focus:ring-primary"
+                required
+              />
             </div>
-          </div>
-
-          <div class="flex flex-col gap-1">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email"/>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -95,167 +132,304 @@
 
               <div class="flex gap-6">
                 <div class="flex gap-1 items-center">
-                  <input type="radio" id="attend-yes" name="attend" value="yes" checked/>
+                  <input
+                    id="attend-yes"
+                    type="radio"
+                    value="yes"
+                    v-model="attend"
+                    class="text-primary focus:ring-primary"
+                  />
                   <label for="attend-yes">Ano</label>
                 </div>
 
                 <div class="flex gap-1 items-center">
-                  <input type="radio" id="attend-no" name="attend" value="no"/>
+                  <input
+                    id="attend-no"
+                    type="radio"
+                    value="no"
+                    v-model="attend"
+                    class="text-primary focus:ring-primary"
+                  />
                   <label for="attend-no">Bohužel, nemůžeme</label>
                 </div>
               </div>
             </div>
 
-            <div class="flex flex-col gap-1">
+            <div v-if="attend === 'yes'" class="flex flex-col gap-1">
               <span>Zůstanete přes noc?</span>
 
               <div class="flex gap-6">
                 <div class="flex gap-1 items-center">
-                  <input type="radio" id="sleep-yes" name="sleep" value="yes"/>
+                  <input
+                    id="sleep-yes"
+                    type="radio"
+                    v-model="sleep"
+                    value="yes"
+                    class="text-primary focus:ring-primary"
+                  />
                   <label for="sleep-yes">Ano</label>
                 </div>
 
                 <div class="flex gap-1 items-center">
-                  <input type="radio" id="sleep-no" name="sleep" value="no"/>
+                  <input
+                    id="sleep-no"
+                    type="radio"
+                    v-model="sleep"
+                    value="no"
+                    checked
+                    class="text-primary focus:ring-primary"
+                  />
                   <label for="sleep-no">Ne</label>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="flex flex-col gap-1">
-              <label for="how-much-will-come">Kolik Vás bude?</label>
-              <input id="how-much-will-come" name="how-much-will-come" type="number"/>
+          <template v-if="attend === 'yes'">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex flex-col gap-1">
+                <label for="how-much-will-come">Kolik Vás bude?</label>
+                <input
+                  id="how-much-will-come"
+                  v-model.number="howMuchWillCome"
+                  type="number"
+                  min="0"
+                  class="border-primary focus:border-primary focus:ring-primary"
+                />
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label for="how-much-child-come">Kolik z toho dětí?</label>
+                <input
+                  id="how-much-child-come"
+                  v-model.number="howMuchChildCome"
+                  type="number"
+                  min="0"
+                  class="border-primary focus:border-primary focus:ring-primary"
+                />
+              </div>
+            </div>
+
+            <div
+              v-if="howMuchChildCome"
+              class="flex flex-col sm:flex-row gap-3 sm:gap-6"
+            >
+              <div class="flex gap-1 items-center">
+                <input
+                  id="child-age-0-3"
+                  type="checkbox"
+                  v-model="childAge['0-3']"
+                  false-value=""
+                  true-value="0-3"
+                  class="text-primary focus:ring-primary"
+                />
+                <label for="child-age-0-3">0-3 let</label>
+              </div>
+
+              <div class="flex gap-1 items-center">
+                <input
+                  id="child-age-4-6"
+                  type="checkbox"
+                  v-model="childAge['4-6']"
+                  false-value=""
+                  true-value="4-6"
+                  class="text-primary focus:ring-primary"
+                />
+                <label for="child-age-4-6">4-6 let</label>
+              </div>
+
+              <div class="flex gap-1 items-center">
+                <input
+                  id="child-age-7-10"
+                  type="checkbox"
+                  v-model="childAge['7-10']"
+                  false-value=""
+                  true-value="7-10"
+                  class="text-primary focus:ring-primary"
+                />
+                <label for="child-age-7-10">7-10 let</label>
+              </div>
+
+              <div class="flex gap-1 items-center">
+                <input
+                  id="child-age-older"
+                  type="checkbox"
+                  v-model="childAge.older"
+                  false-value=""
+                  true-value="older"
+                  class="text-primary focus:ring-primary"
+                />
+                <label for="child-age-older">starší</label>
+              </div>
             </div>
 
             <div class="flex flex-col gap-1">
-              <label for="how-much-child-come">Kolik z toho dětí?</label>
-              <input id="how-much-child-come" name="how-much-child-come" type="number"/>
+              <label for="food-restrictions">Potravinové omezení</label>
+              <textarea
+                id="food-restrictions"
+                rows="3"
+                v-model.trim="foodRestrictions"
+                class="border-primary focus:border-primary focus:ring-primary"
+              />
             </div>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
-            <div class="flex gap-1 items-center">
-              <input type="checkbox" id="child-count-0-3" name="child-count-0-3" value="0-3"/>
-              <label for="child-count-0-3">0-3 let</label>
-            </div>
-
-            <div class="flex gap-1 items-center">
-              <input type="checkbox" id="child-count-4-6" name="child-count-4-6" value="4-6"/>
-              <label for="child-count-4-6">4-6 let</label>
-            </div>
-
-            <div class="flex gap-1 items-center">
-              <input type="checkbox" id="child-count-7-10" name="child-count-7-10" value="7-10"/>
-              <label for="child-count-7-10">7-10 let</label>
-            </div>
-
-            <div class="flex gap-1 items-center">
-              <input type="checkbox" id="child-count-older" name="child-count-older" value="older"/>
-              <label for="child-count-older">starší</label>
-            </div>
-          </div>
-
-          <div class="flex flex-col gap-1">
-            <label for="food-restrictions">Potravinové omezení</label>
-            <textarea id="food-restrictions" rows="3" name="food-restrictions"/>
-          </div>
+          </template>
 
           <div class="flex justify-center">
             <button
-                class="text-4xl font-bold font-gwendolyn bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
-                type="submit">Odeslat dotazník
+              class="text-4xl font-bold font-parisienne bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
+              type="submit"
+            >
+              Odeslat dotazník
             </button>
           </div>
         </form>
       </section>
 
-      <hr class="mx-12"/>
+      <hr class="mx-12" />
 
       <section class="flex flex-col gap-6">
-        <h2 class="text-5xl font-bold font-gwendolyn text-center">Kdy a kde se sejdeme</h2>
+        <h2 class="text-5xl font-bold font-parisienne text-center text-primary">
+          Kdy a kde se sejdeme
+        </h2>
 
-        <div class="flex flex-col">
-          <p class="text-center">Sejdeme se v <b>pátek 1.11.2024</b> ve <b>13 hodin</b> v <a
-              href="https://www.restaurace-mohelenskydvur.cz/" target="_blank" class="underline">Mohelenském Dvoře</a>.
+        <div class="flex flex-col text-center gap-3">
+          <p>
+            Sejdeme se v <b>pátek 1.11.2024</b> ve <b>12:30</b> v
+            <a
+              href="https://www.restaurace-mohelenskydvur.cz/"
+              target="_blank"
+              class="underline"
+              >Mohelenském Dvoře</a
+            >.
+          </p>
+
+          <p>
+            Své ano si řekneme ve venkovních prostorách areálu Mohelenského
+            Dvora.<br />
+            Do vnitřních prostor restaurace nás pustí až po obřadu.
           </p>
         </div>
 
-        <iframe class="border-0 w-full aspect-video" src="https://frame.mapy.cz/s/pebavopoja" frameborder="0"></iframe>
+        <iframe
+          class="border-0 w-full aspect-video"
+          src="https://frame.mapy.cz/s/pebavopoja"
+          frameborder="0"
+        />
       </section>
 
-      <hr class="mx-12"/>
+      <hr class="mx-12" />
 
       <section class="flex flex-col gap-3">
-        <h2 class="text-5xl font-bold font-gwendolyn">Program</h2>
+        <h2 class="text-5xl font-bold font-parisienne text-primary">Program</h2>
 
         <p>Bude brzy doplněno...</p>
       </section>
 
       <section class="flex flex-col gap-3">
-        <h2 class="text-5xl font-bold font-gwendolyn">Dress code</h2>
-
-        <p>Radost nám uděláte, pokud přijdete v podzimních barvách. Barva svatby bude <b>smaragdová</b>.</p>
-      </section>
-
-      <section class="flex flex-col gap-3">
-        <h2 class="text-5xl font-bold font-gwendolyn">Dary</h2>
+        <h2 class="text-5xl font-bold font-parisienne text-primary">
+          Dress code
+        </h2>
 
         <p>
-          Už spolu nějaký ten pátek bydlíme a vše již doma máme. Největší radost udělá <b>finanční příspěvek</b> na
-          svatební
-          cestu a tento nezapomenutelný den.
+          Radost nám uděláte, pokud přijdete v podzimních barvách. Barva svatby
+          bude <b>smaragdová</b>.
         </p>
       </section>
 
       <section class="flex flex-col gap-3">
-        <h2 class="text-5xl font-bold font-gwendolyn">Ubytování</h2>
+        <h2 class="text-5xl font-bold font-parisienne text-primary">Dary</h2>
+
+        <p>
+          Už spolu nějaký ten pátek bydlíme a vše již doma máme. Největší radost
+          nám udělá <b>finanční příspěvek</b> na svatební cestu a tento
+          nezapomenutelný den.
+        </p>
+      </section>
+
+      <section class="flex flex-col gap-3">
+        <h2 class="text-5xl font-bold font-parisienne text-primary">
+          Ubytování
+        </h2>
 
         <div class="flex flex-col">
           <p>
-            Ubytování je možné v místě konání svatby <span class="italic">(21 lůžek)</span>.
-            Další možnost ubytování je v penzionu <a class="underline" href="https://penzionuvalesu.cz/"
-                                                     target="_blank">U Valešů</a> přímo
-            naproti Mohelenskému Dvoru <span class="italic">(19 lůžek)</span>.
-            Proto prosíme o důkladné vyplnění <a class="underline" href="#potvrzeni-ucasti">svatebního dotazníku</a>,
-            abychom věděli kolik hostů má zájem přespat.
+            Ubytování je možné v místě konání svatby
+            <span class="italic">(21 lůžek)</span>. Další možnost ubytování je v
+            penzionu
+            <a
+              class="underline"
+              href="https://penzionuvalesu.cz/"
+              target="_blank"
+              >U Valešů</a
+            >
+            přímo naproti Mohelenskému Dvoru
+            <span class="italic">(19 lůžek)</span>. Proto prosíme o důkladné
+            vyplnění
+            <a class="underline" href="#potvrzeni-ucasti"
+              >svatebního dotazníku</a
+            >, abychom věděli kolik hostů má zájem přespat.
           </p>
         </div>
       </section>
 
       <section class="flex flex-col gap-3">
-        <h2 class="text-5xl font-bold font-gwendolyn">Fotogalerie</h2>
+        <h2 class="text-5xl font-bold font-parisienne text-primary">
+          Fotogalerie
+        </h2>
 
         <p>Hned po svatbě budou nahrány fotky a videa.</p>
       </section>
 
-      <hr class="mx-12"/>
+      <hr class="mx-12" />
 
-      <section class="flex flex-col gap-6">
-        <h2 class="text-5xl font-bold font-gwendolyn text-center">Kontaktní osoby</h2>
+      <section class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <h2
+            class="text-5xl font-bold font-parisienne text-center text-primary"
+          >
+            Kontaktní osoby
+          </h2>
+
+          <p class="text-center">
+            Dotazy <b>před svatbou</b> směřujte prosím na na nevěstu a
+            ženicha.<br />
+            <b>Během svatebního dne</b> prosím směřujte všechny Vaše dotazy na
+            svědka a svědkyni.
+          </p>
+        </div>
 
         <div class="flex flex-col gap-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24">
             <div class="flex flex-col items-center gap-3">
               <div class="w-52 h-52 overflow-hidden rounded-full">
-                <img class="duration-500 transition-all hover:scale-105" src="@/public/images/svedkyne.jpg"
-                     alt="Svědkyně"/>
+                <img
+                  class="duration-500 transition-all hover:scale-105"
+                  src="@/public/images/svedkyne.jpg"
+                  alt="Svědkyně"
+                />
               </div>
 
               <div class="flex flex-col items-center gap-1">
-                <span class="text-xl font-semibold text-center">Monča Poláková</span>
+                <span class="text-xl font-semibold text-center"
+                  >Monča Poláková</span
+                >
                 <span class="text-lg">Svědkyně</span>
               </div>
             </div>
 
             <div class="flex flex-col items-center gap-3">
               <div class="w-52 h-52 overflow-hidden rounded-full">
-                <img class="duration-500 transition-all hover:scale-105" src="@/public/images/svedek.jpg" alt="Svědek"/>
+                <img
+                  class="duration-500 transition-all hover:scale-105"
+                  src="@/public/images/svedek.jpg"
+                  alt="Svědek"
+                />
               </div>
 
               <div class="flex flex-col items-center gap-1">
-                <span class="text-xl font-semibold text-center">Jakub Šebela</span>
+                <span class="text-xl font-semibold text-center"
+                  >Jakub Šebela</span
+                >
                 <span class="text-lg">Svědek</span>
               </div>
             </div>
@@ -268,8 +442,55 @@
 
 <script setup lang="ts">
 useHead({
-  title: "Svatba Kadlecovi 2024"
-})
+  title: "Svatba Kadlecovi 2024",
+});
 
-const showConfirmParticipationForm = ref(false)
+const showConfirmParticipationForm = ref(false);
+
+// Form fields
+const fullName = ref("");
+const email = ref("");
+const attend = ref("yes");
+const sleep = ref("no");
+const howMuchWillCome = ref(2);
+const howMuchChildCome = ref();
+const childAge = ref({
+  "0-3": "",
+  "4-6": "",
+  "7-10": "",
+  older: "",
+});
+const foodRestrictions = ref();
+
+async function handleConfirmParticipationFormSubmit(event: any) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  let additionalData: any = {
+    sleep: sleep.value,
+    howMuchWillCome: howMuchWillCome.value,
+  };
+
+  if (howMuchChildCome) {
+    additionalData = {
+      ...additionalData,
+      childAge: Object.values(childAge.value).filter((value) => value !== ""),
+    };
+  }
+
+  const { body } = await $fetch("/api/confirm-participation", {
+    method: "post",
+    body: {
+      fullName: fullName.value,
+      email: email.value,
+      attend: attend.value,
+      ...(attend.value === "yes"
+        ? {
+            ...additionalData,
+            foodRestrictions: foodRestrictions.value,
+          }
+        : {}),
+    },
+  });
+}
 </script>

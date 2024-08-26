@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,15 +6,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        gwendolyn: ["Gwendolyn", ...defaultTheme.fontFamily.sans],
+        parisienne: ["Parisienne", ...defaultTheme.fontFamily.sans],
         merriweather: ["Merriweather", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: "#8DA48A"
-      }
+        primary: "#8DA48A",
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
-}
+  plugins: [require("@tailwindcss/forms")],
+};
