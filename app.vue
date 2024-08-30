@@ -8,12 +8,12 @@
       class="absolute top-0 left-0 pointer-events-none hidden xl:block"
       src="@/public/images/plants.png"
       alt="decor"
-    />
+    >
     <img
       class="absolute top-0 right-0 pointer-events-none hidden xl:block"
       src="@/public/images/plants-mirror.png"
       alt="decor"
-    />
+    >
 
     <header class="flex flex-col gap-3 relative overflow-hidden h-auto group">
       <div class="relative">
@@ -21,7 +21,7 @@
           class="transition-all duration-500 group-hover:scale-105"
           src="@/public/images/hlavni.jpg"
           alt="Terka s Jirkou"
-        />
+        >
         <div class="absolute inset-0 bg-gradient-to-r from-lime-950 to-60%" />
       </div>
 
@@ -87,7 +87,13 @@
       </section>
 
       <section class="flex flex-col gap-3">
-        <div v-if="!showConfirmParticipationForm" class="flex justify-center">
+        <div
+          v-if="
+            !showConfirmParticipationForm &&
+            confirmParticipationFormIsSentOk === undefined
+          "
+          class="flex justify-center"
+        >
           <button
             id="potvrzeni-ucasti"
             class="text-4xl font-bold font-parisienne bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105 animate-pulse"
@@ -95,6 +101,24 @@
           >
             Vyplnit svatební dotazník
           </button>
+        </div>
+
+        <div
+          v-if="confirmParticipationFormIsSentOk !== undefined"
+          class="text-white text-center"
+        >
+          <div
+            v-if="confirmParticipationFormIsSentOk === true"
+            class="bg-primary p-3 rounded"
+          >
+            Děkujeme za vyplnění dotazníku!
+          </div>
+          <div
+            v-if="confirmParticipationFormIsSentOk === false"
+            class="bg-red-400 p-3 rounded"
+          >
+            Během odesílání nastala chyba!
+          </div>
         </div>
 
         <form
@@ -107,22 +131,22 @@
               <label for="full-name">Vaše jméno</label>
               <input
                 id="full-name"
-                type="text"
                 v-model.trim="fullName"
+                type="text"
                 required
                 class="border-primary focus:border-primary focus:ring-primary"
-              />
+              >
             </div>
 
             <div class="flex flex-col gap-1">
               <label for="email">E-mail</label>
               <input
                 id="email"
-                type="email"
                 v-model.trim="email"
+                type="email"
                 class="border-primary focus:border-primary focus:ring-primary"
                 required
-              />
+              >
             </div>
           </div>
 
@@ -134,22 +158,22 @@
                 <div class="flex gap-1 items-center">
                   <input
                     id="attend-yes"
+                    v-model="attend"
                     type="radio"
                     value="yes"
-                    v-model="attend"
                     class="text-primary focus:ring-primary"
-                  />
+                  >
                   <label for="attend-yes">Ano</label>
                 </div>
 
                 <div class="flex gap-1 items-center">
                   <input
                     id="attend-no"
+                    v-model="attend"
                     type="radio"
                     value="no"
-                    v-model="attend"
                     class="text-primary focus:ring-primary"
-                  />
+                  >
                   <label for="attend-no">Bohužel, nemůžeme</label>
                 </div>
               </div>
@@ -162,23 +186,23 @@
                 <div class="flex gap-1 items-center">
                   <input
                     id="sleep-yes"
-                    type="radio"
                     v-model="sleep"
+                    type="radio"
                     value="yes"
                     class="text-primary focus:ring-primary"
-                  />
+                  >
                   <label for="sleep-yes">Ano</label>
                 </div>
 
                 <div class="flex gap-1 items-center">
                   <input
                     id="sleep-no"
-                    type="radio"
                     v-model="sleep"
+                    type="radio"
                     value="no"
                     checked
                     class="text-primary focus:ring-primary"
-                  />
+                  >
                   <label for="sleep-no">Ne</label>
                 </div>
               </div>
@@ -195,7 +219,7 @@
                   type="number"
                   min="0"
                   class="border-primary focus:border-primary focus:ring-primary"
-                />
+                >
               </div>
 
               <div class="flex flex-col gap-1">
@@ -206,7 +230,7 @@
                   type="number"
                   min="0"
                   class="border-primary focus:border-primary focus:ring-primary"
-                />
+                >
               </div>
             </div>
 
@@ -217,48 +241,48 @@
               <div class="flex gap-1 items-center">
                 <input
                   id="child-age-0-3"
-                  type="checkbox"
                   v-model="childAge['0-3']"
+                  type="checkbox"
                   false-value=""
                   true-value="0-3"
                   class="text-primary focus:ring-primary"
-                />
+                >
                 <label for="child-age-0-3">0-3 let</label>
               </div>
 
               <div class="flex gap-1 items-center">
                 <input
                   id="child-age-4-6"
-                  type="checkbox"
                   v-model="childAge['4-6']"
+                  type="checkbox"
                   false-value=""
                   true-value="4-6"
                   class="text-primary focus:ring-primary"
-                />
+                >
                 <label for="child-age-4-6">4-6 let</label>
               </div>
 
               <div class="flex gap-1 items-center">
                 <input
                   id="child-age-7-10"
-                  type="checkbox"
                   v-model="childAge['7-10']"
+                  type="checkbox"
                   false-value=""
                   true-value="7-10"
                   class="text-primary focus:ring-primary"
-                />
+                >
                 <label for="child-age-7-10">7-10 let</label>
               </div>
 
               <div class="flex gap-1 items-center">
                 <input
                   id="child-age-older"
-                  type="checkbox"
                   v-model="childAge.older"
+                  type="checkbox"
                   false-value=""
                   true-value="older"
                   class="text-primary focus:ring-primary"
-                />
+                >
                 <label for="child-age-older">starší</label>
               </div>
             </div>
@@ -267,8 +291,8 @@
               <label for="food-restrictions">Potravinové omezení</label>
               <textarea
                 id="food-restrictions"
-                rows="3"
                 v-model.trim="foodRestrictions"
+                rows="3"
                 class="border-primary focus:border-primary focus:ring-primary"
               />
             </div>
@@ -285,7 +309,7 @@
         </form>
       </section>
 
-      <hr class="mx-12" />
+      <hr class="mx-12" >
 
       <section class="flex flex-col gap-6">
         <h2 class="text-5xl font-bold font-parisienne text-center text-primary">
@@ -305,7 +329,7 @@
 
           <p>
             Své ano si řekneme ve venkovních prostorách areálu Mohelenského
-            Dvora.<br />
+            Dvora.<br >
             Do vnitřních prostor restaurace nás pustí až po obřadu.
           </p>
         </div>
@@ -317,15 +341,15 @@
         />
       </section>
 
-      <hr class="mx-12" />
+      <hr class="mx-12" >
 
-      <section class="flex flex-col gap-3">
+      <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">Program</h2>
 
         <p>Bude brzy doplněno...</p>
       </section>
 
-      <section class="flex flex-col gap-3">
+      <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">
           Dress code
         </h2>
@@ -336,7 +360,7 @@
         </p>
       </section>
 
-      <section class="flex flex-col gap-3">
+      <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">Dary</h2>
 
         <p>
@@ -346,7 +370,7 @@
         </p>
       </section>
 
-      <section class="flex flex-col gap-3">
+      <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">
           Ubytování
         </h2>
@@ -372,7 +396,7 @@
         </div>
       </section>
 
-      <section class="flex flex-col gap-3">
+      <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">
           Fotogalerie
         </h2>
@@ -380,7 +404,7 @@
         <p>Hned po svatbě budou nahrány fotky a videa.</p>
       </section>
 
-      <hr class="mx-12" />
+      <hr class="mx-12" >
 
       <section class="flex flex-col gap-8">
         <div class="flex flex-col gap-3">
@@ -391,8 +415,7 @@
           </h2>
 
           <p class="text-center">
-            Dotazy <b>před svatbou</b> směřujte prosím na na nevěstu a
-            ženicha.<br />
+            Dotazy <b>před svatbou</b> směřujte prosím na nevěstu a ženicha.<br >
             <b>Během svatebního dne</b> prosím směřujte všechny Vaše dotazy na
             svědka a svědkyni.
           </p>
@@ -406,7 +429,7 @@
                   class="duration-500 transition-all hover:scale-105"
                   src="@/public/images/svedkyne.jpg"
                   alt="Svědkyně"
-                />
+                >
               </div>
 
               <div class="flex flex-col items-center gap-1">
@@ -423,7 +446,7 @@
                   class="duration-500 transition-all hover:scale-105"
                   src="@/public/images/svedek.jpg"
                   alt="Svědek"
-                />
+                >
               </div>
 
               <div class="flex flex-col items-center gap-1">
@@ -446,6 +469,7 @@ useHead({
 });
 
 const showConfirmParticipationForm = ref(false);
+const confirmParticipationFormIsSentOk = ref();
 
 // Form fields
 const fullName = ref("");
@@ -471,14 +495,15 @@ async function handleConfirmParticipationFormSubmit(event: any) {
     howMuchWillCome: howMuchWillCome.value,
   };
 
-  if (howMuchChildCome) {
+  if (howMuchChildCome.value > 0) {
     additionalData = {
       ...additionalData,
+      howMuchChildCome: howMuchChildCome.value,
       childAge: Object.values(childAge.value).filter((value) => value !== ""),
     };
   }
 
-  const { body } = await $fetch("/api/confirm-participation", {
+  const sendForm = await $fetch("/api/confirm-participation", {
     method: "post",
     body: {
       fullName: fullName.value,
@@ -492,5 +517,8 @@ async function handleConfirmParticipationFormSubmit(event: any) {
         : {}),
     },
   });
+
+  showConfirmParticipationForm.value = false;
+  confirmParticipationFormIsSentOk.value = sendForm.isOk;
 }
 </script>

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       "@nuxtjs/google-fonts",
       {
         families: {
-          Merriweather: [400, 700, 900],
+          Belleza: [400, 700, 900],
           Parisienne: [400],
         },
       },

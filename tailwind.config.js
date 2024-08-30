@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        belleza: ["Belleza", ...defaultTheme.fontFamily.sans],
         parisienne: ["Parisienne", ...defaultTheme.fontFamily.sans],
-        merriweather: ["Merriweather", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: "#8DA48A",
