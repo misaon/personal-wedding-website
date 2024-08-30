@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
   try {
     await transporter.sendMail({
       from: appSender,
-      to: "email@ondrejmisak.cz",
+      to: "jury.jk@gmail.com",
       subject: "Svatební dotazník",
       html: emailHtmlBody,
     });

@@ -7,13 +7,13 @@
     <img
       class="absolute top-0 left-0 pointer-events-none hidden xl:block"
       src="@/public/images/plants.png"
-      alt="decor"
-    >
+      alt="dekor"
+    />
     <img
       class="absolute top-0 right-0 pointer-events-none hidden xl:block"
       src="@/public/images/plants-mirror.png"
-      alt="decor"
-    >
+      alt="dekor"
+    />
 
     <header class="flex flex-col gap-3 relative overflow-hidden h-auto group">
       <div class="relative">
@@ -21,8 +21,8 @@
           class="transition-all duration-500 group-hover:scale-105"
           src="@/public/images/hlavni.jpg"
           alt="Terka s Jirkou"
-        >
-        <div class="absolute inset-0 bg-gradient-to-r from-lime-950 to-60%" />
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#376A4A] to-60%" />
       </div>
 
       <div class="flex absolute inset-0">
@@ -39,10 +39,10 @@
 
           <div class="flex flex-col">
             <span
-              class="text-white font-bold text-6xl md:text-8xl font-parisienne"
+              class="text-white font-bold text-5xl md:text-8xl font-parisienne"
               >Tereza & Jiří</span
             >
-            <span class="text-white text-4xl md:text-6xl font-parisienne"
+            <span class="text-white text-3xl md:text-6xl font-parisienne"
               >si řeknou své <b>Ano</b></span
             >
           </div>
@@ -50,8 +50,14 @@
       </div>
     </header>
 
-    <div class="flex flex-col gap-12 p-6 md:p-12">
-      <section class="flex flex-col gap-3">
+    <div class="flex flex-col gap-12 p-6 md:p-12 relative">
+      <img
+        class="absolute top-0 right-0 z-0 opacity-30 block md:hidden"
+        src="@/public/images/plants-mirror.png"
+        alt="dekor"
+      />
+
+      <section class="flex flex-col gap-3 z-10">
         <div class="flex flex-col gap-3">
           <p>
             Jsme nadšení, že se s Vámi můžeme podělit o tento jedinečný okamžik
@@ -96,7 +102,7 @@
         >
           <button
             id="potvrzeni-ucasti"
-            class="text-4xl font-bold font-parisienne bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105 animate-pulse"
+            class="text-4xl font-bold font-parisienne bg-primary text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
             @click="showConfirmParticipationForm = true"
           >
             Vyplnit svatební dotazník
@@ -105,7 +111,7 @@
 
         <div
           v-if="confirmParticipationFormIsSentOk !== undefined"
-          class="text-white text-center"
+          class="text-white text-center font-bold"
         >
           <div
             v-if="confirmParticipationFormIsSentOk === true"
@@ -128,14 +134,14 @@
         >
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div class="flex flex-col gap-1">
-              <label for="full-name">Vaše jméno</label>
+              <label for="full-name">Jméno a příjmení</label>
               <input
                 id="full-name"
                 v-model.trim="fullName"
                 type="text"
                 required
                 class="border-primary focus:border-primary focus:ring-primary"
-              >
+              />
             </div>
 
             <div class="flex flex-col gap-1">
@@ -146,7 +152,7 @@
                 type="email"
                 class="border-primary focus:border-primary focus:ring-primary"
                 required
-              >
+              />
             </div>
           </div>
 
@@ -162,7 +168,7 @@
                     type="radio"
                     value="yes"
                     class="text-primary focus:ring-primary"
-                  >
+                  />
                   <label for="attend-yes">Ano</label>
                 </div>
 
@@ -173,7 +179,7 @@
                     type="radio"
                     value="no"
                     class="text-primary focus:ring-primary"
-                  >
+                  />
                   <label for="attend-no">Bohužel, nemůžeme</label>
                 </div>
               </div>
@@ -190,7 +196,7 @@
                     type="radio"
                     value="yes"
                     class="text-primary focus:ring-primary"
-                  >
+                  />
                   <label for="sleep-yes">Ano</label>
                 </div>
 
@@ -202,7 +208,7 @@
                     value="no"
                     checked
                     class="text-primary focus:ring-primary"
-                  >
+                  />
                   <label for="sleep-no">Ne</label>
                 </div>
               </div>
@@ -219,18 +225,21 @@
                   type="number"
                   min="0"
                   class="border-primary focus:border-primary focus:ring-primary"
-                >
+                />
               </div>
 
               <div class="flex flex-col gap-1">
-                <label for="how-much-child-come">Kolik z toho dětí?</label>
+                <label for="how-much-child-come"
+                  >Kolik z toho dětí?
+                  <span class="text-sm">(volitelné)</span></label
+                >
                 <input
                   id="how-much-child-come"
                   v-model.number="howMuchChildCome"
                   type="number"
                   min="0"
                   class="border-primary focus:border-primary focus:ring-primary"
-                >
+                />
               </div>
             </div>
 
@@ -246,7 +255,7 @@
                   false-value=""
                   true-value="0-3"
                   class="text-primary focus:ring-primary"
-                >
+                />
                 <label for="child-age-0-3">0-3 let</label>
               </div>
 
@@ -258,7 +267,7 @@
                   false-value=""
                   true-value="4-6"
                   class="text-primary focus:ring-primary"
-                >
+                />
                 <label for="child-age-4-6">4-6 let</label>
               </div>
 
@@ -270,7 +279,7 @@
                   false-value=""
                   true-value="7-10"
                   class="text-primary focus:ring-primary"
-                >
+                />
                 <label for="child-age-7-10">7-10 let</label>
               </div>
 
@@ -282,13 +291,16 @@
                   false-value=""
                   true-value="older"
                   class="text-primary focus:ring-primary"
-                >
+                />
                 <label for="child-age-older">starší</label>
               </div>
             </div>
 
             <div class="flex flex-col gap-1">
-              <label for="food-restrictions">Potravinové omezení</label>
+              <label for="food-restrictions"
+                >Potravinové omezení
+                <span class="text-sm">(volitelné)</span></label
+              >
               <textarea
                 id="food-restrictions"
                 v-model.trim="foodRestrictions"
@@ -300,7 +312,7 @@
 
           <div class="flex justify-center">
             <button
-              class="text-4xl font-bold font-parisienne bg-emerald-900 text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
+              class="text-4xl font-bold font-parisienne bg-primary text-white rounded-xl py-3 px-6 hover:bg-primary transition-all hover:scale-105"
               type="submit"
             >
               Odeslat dotazník
@@ -309,7 +321,7 @@
         </form>
       </section>
 
-      <hr class="mx-12" >
+      <hr class="mx-12" />
 
       <section class="flex flex-col gap-6">
         <h2 class="text-5xl font-bold font-parisienne text-center text-primary">
@@ -329,7 +341,7 @@
 
           <p>
             Své ano si řekneme ve venkovních prostorách areálu Mohelenského
-            Dvora.<br >
+            Dvora.<br />
             Do vnitřních prostor restaurace nás pustí až po obřadu.
           </p>
         </div>
@@ -341,7 +353,7 @@
         />
       </section>
 
-      <hr class="mx-12" >
+      <hr class="mx-12" />
 
       <section class="flex flex-col gap-3 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">Program</h2>
@@ -356,7 +368,7 @@
 
         <p>
           Radost nám uděláte, pokud přijdete v podzimních barvách. Barva svatby
-          bude <b>smaragdová</b>.
+          bude <b class="text-emerald-800">smaragdová</b>.
         </p>
       </section>
 
@@ -364,9 +376,9 @@
         <h2 class="text-5xl font-bold font-parisienne text-primary">Dary</h2>
 
         <p>
-          Už spolu nějaký ten pátek bydlíme a vše již doma máme. Největší radost
-          nám udělá <b>finanční příspěvek</b> na svatební cestu a tento
-          nezapomenutelný den.
+          Už spolu nějaký ten pátek bydlíme a vše již doma máme.<br />
+          Největší radost nám udělá <b>finanční příspěvek</b> na svatební cestu
+          a tento nezapomenutelný den.
         </p>
       </section>
 
@@ -401,10 +413,10 @@
           Fotogalerie
         </h2>
 
-        <p>Hned po svatbě budou nahrány fotky a videa.</p>
+        <p>Po svatbě sem budou nahrány fotky a videa ke stažení.</p>
       </section>
 
-      <hr class="mx-12" >
+      <hr class="mx-12" />
 
       <section class="flex flex-col gap-8">
         <div class="flex flex-col gap-3">
@@ -415,7 +427,7 @@
           </h2>
 
           <p class="text-center">
-            Dotazy <b>před svatbou</b> směřujte prosím na nevěstu a ženicha.<br >
+            Dotazy <b>před svatbou</b> směřujte prosím na nevěstu a ženicha.<br />
             <b>Během svatebního dne</b> prosím směřujte všechny Vaše dotazy na
             svědka a svědkyni.
           </p>
@@ -424,12 +436,12 @@
         <div class="flex flex-col gap-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24">
             <div class="flex flex-col items-center gap-3">
-              <div class="w-52 h-52 overflow-hidden rounded-full">
+              <div class="w-52 h-52 overflow-hidden rounded-full shadow-xl">
                 <img
                   class="duration-500 transition-all hover:scale-105"
                   src="@/public/images/svedkyne.jpg"
                   alt="Svědkyně"
-                >
+                />
               </div>
 
               <div class="flex flex-col items-center gap-1">
@@ -441,12 +453,12 @@
             </div>
 
             <div class="flex flex-col items-center gap-3">
-              <div class="w-52 h-52 overflow-hidden rounded-full">
+              <div class="w-52 h-52 overflow-hidden rounded-full shadow-xl">
                 <img
                   class="duration-500 transition-all hover:scale-105"
                   src="@/public/images/svedek.jpg"
                   alt="Svědek"
-                >
+                />
               </div>
 
               <div class="flex flex-col items-center gap-1">
@@ -458,6 +470,12 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <hr class="mx-12" />
+
+      <section>
+        <p class="text-center italic">Poslední aktualizace 30. srpna 2024</p>
       </section>
     </div>
   </main>
