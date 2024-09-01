@@ -355,10 +355,10 @@
 
       <hr class="mx-12" />
 
-      <section class="flex flex-col gap-3 text-center">
+      <section class="flex flex-col gap-8 text-center">
         <h2 class="text-5xl font-bold font-parisienne text-primary">Program</h2>
 
-        <p>Bude brzy doplněno...</p>
+        <img src="@/public/images/program.jpg" alt="program" />
       </section>
 
       <section class="flex flex-col gap-3 text-center">
