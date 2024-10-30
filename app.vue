@@ -422,7 +422,7 @@
 
           <p>Pro všechny je zařízena sobotní snídaně v restauraci Mohelenského Dvora - od 9:00 do 10:00. (Poté už bude pro nás restaurace uzavřena).</p>
 
-          <img src="@/public/images/rozpis-ubytovani.png" alt="rozpis ubytování" class="w-full md:w-10/12 self-center" />
+          <img src="@/public/images/ubytovani-rozpis.png" alt="rozpis ubytování" class="w-full md:w-10/12 self-center" />
         </div>
       </section>
 
