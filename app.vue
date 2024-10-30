@@ -323,6 +323,11 @@
 
       <hr class="mx-12" />
 
+      <section class="text-center">
+        <p>Během obřadu prosím nepoužívejte svoje mobilní telefony.</p>
+        <p>Celý obřad bude zaznamenán kameramanem a fotografkou a o vše se s Vámi podělíme zde na webu.</p>
+      </section>
+
       <section class="flex flex-col gap-6">
         <h2 class="text-5xl font-bold font-parisienne text-center text-primary">
           Kdy a kde se sejdeme
@@ -399,12 +404,25 @@
               >U Valešů</a
             >
             přímo naproti Mohelenskému Dvoru
-            <span class="italic">(19 lůžek)</span>. Proto prosíme o důkladné
+            <span class="italic">(19 lůžek)</span>.
+          </p>
+
+          <p>Proto prosíme o důkladné
             vyplnění
             <a class="underline" href="#potvrzeni-ucasti"
-              >svatebního dotazníku</a
-            >, abychom věděli kolik hostů má zájem přespat.
+            >svatebního dotazníku</a
+            >, abychom věděli kolik hostů má zájem přespat.</p>
+
+          <br />
+
+          <p>
+            Ubytovávání hostů v Penzionu i Mohelenském dvoře bude probíhat v době focení novomanželů - cca. <b>od 15 hodiny</b>.
+            Viz rozpis níže. V případě dotazů pomůžou svědci.
           </p>
+
+          <p>Pro všechny je zařízena sobotní snídaně v restauraci Mohelenského Dvora - od 9:00 do 10:00. (Poté už bude pro nás restaurace uzavřena).</p>
+
+          <img src="@/public/images/rozpis-ubytovani.png" alt="rozpis ubytování" class="w-full md:w-10/12 self-center" />
         </div>
       </section>
 
@@ -475,7 +493,7 @@
       <hr class="mx-12" />
 
       <section>
-        <p class="text-center italic">Poslední aktualizace 30. srpna 2024</p>
+        <p class="text-center italic">Poslední aktualizace 30. října 2024</p>
       </section>
     </div>
   </main>
